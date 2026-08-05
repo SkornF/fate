@@ -214,7 +214,7 @@ export default function Home() {
                 priority
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/60 via-neutral-950/80 to-neutral-950" />
+              <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/55 via-neutral-950/80 to-neutral-950" />
             </>
           )}
           <div
@@ -251,7 +251,7 @@ export default function Home() {
               </a>
               <a
                 href="#about"
-                className="rounded-md border border-neutral-700 px-6 py-3 text-sm font-semibold text-neutral-200 hover:border-neutral-500"
+                className="rounded-md border border-neutral-700 bg-neutral-950/40 px-6 py-3 text-sm font-semibold text-neutral-200 backdrop-blur-sm hover:border-neutral-500"
               >
                 Learn More
               </a>
