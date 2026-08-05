@@ -46,6 +46,9 @@ export default function Home() {
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl">
             F.A.T.E.
           </h1>
+          <p className="mt-2 text-sm font-medium text-neutral-500 sm:text-base">
+            Florida Adventure &amp; Trail Exploration
+          </p>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-400">
             9,000+ Florida dirt bike riders hitting the trails, wrenching on
             bikes, and riding together every chance we get.
@@ -81,7 +84,7 @@ export default function Home() {
               who&apos;d rather be on two wheels than anywhere else.
             </p>
             <p className="mt-6 max-w-3xl text-neutral-400">
-              F.A.T.E. — Florida Adventure and Trail Exploration — started as
+              F.A.T.E. — Florida Adventure &amp; Trail Exploration — started as
               a Facebook group and has grown into a community of over 9,000
               riders. Whether it&apos;s a weekend trail day, a group ride out
               to one of Florida&apos;s off-road parks, or just swapping
