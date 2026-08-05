@@ -20,4 +20,10 @@ export type SiteContent = {
   stat2Label: string;
   stat3Value: string;
   stat3Label: string;
+  heroImage?: string;
+};
+
+export type GalleryImage = {
+  image: string;
+  caption?: string;
 };

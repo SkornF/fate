@@ -1,9 +1,12 @@
+import Image from "next/image";
 import eventsData from "@/data/events.json";
 import siteContent from "@/data/site.json";
-import type { FateEvent, SiteContent } from "@/data/types";
+import galleryData from "@/data/gallery.json";
+import type { FateEvent, SiteContent, GalleryImage } from "@/data/types";
 
 const events = eventsData.events as FateEvent[];
 const site = siteContent as SiteContent;
+const galleryImages = galleryData.images as GalleryImage[];
 
 const DATE_OPTS: Intl.DateTimeFormatOptions = {
   weekday: "short",
@@ -115,6 +118,23 @@ function CalendarIcon() {
   );
 }
 
+function CameraIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="h-4 w-4 shrink-0"
+      aria-hidden="true"
+    >
+      <path
+        fillRule="evenodd"
+        d="M6.5 3.5A1.5 1.5 0 018 2h4a1.5 1.5 0 011.5 1.5V4h1A2.5 2.5 0 0117 6.5v8A2.5 2.5 0 0114.5 17h-9A2.5 2.5 0 013 14.5v-8A2.5 2.5 0 015.5 4h1v-.5zM10 7a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
 export default function Home() {
   const now = new Date();
   const upcomingEvents = events
@@ -133,6 +153,11 @@ export default function Home() {
             <a href="#events" className="hover:text-neutral-100">
               Events
             </a>
+            {galleryImages.length > 0 && (
+              <a href="#gallery" className="hover:text-neutral-100">
+                Gallery
+              </a>
+            )}
             <a href="#contact" className="hover:text-neutral-100">
               Contact
             </a>
@@ -142,6 +167,18 @@ export default function Home() {
 
       <main className="flex-1">
         <section className="relative overflow-hidden">
+          {site.heroImage && (
+            <>
+              <Image
+                src={site.heroImage}
+                alt=""
+                fill
+                priority
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/60 via-neutral-950/80 to-neutral-950" />
+            </>
+          )}
           <div
             className="bg-dot-grid pointer-events-none absolute inset-0"
             style={{
@@ -307,6 +344,42 @@ export default function Home() {
             )}
           </div>
         </section>
+
+        {galleryImages.length > 0 && (
+          <section
+            id="gallery"
+            className="border-t border-neutral-800 bg-neutral-900/40"
+          >
+            <div className="mx-auto max-w-5xl px-6 py-20">
+              <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
+                <CameraIcon />
+                Gallery
+              </h2>
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {galleryImages.map((photo, i) => (
+                  <div
+                    key={`${photo.image}-${i}`}
+                    className="group relative aspect-square overflow-hidden rounded-md bg-neutral-800"
+                  >
+                    <Image
+                      src={photo.image}
+                      alt={photo.caption ?? ""}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    {photo.caption && (
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-2 opacity-0 transition-opacity group-hover:opacity-100">
+                        <p className="text-xs text-neutral-100">
+                          {photo.caption}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
       </main>
 
       <footer

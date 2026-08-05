@@ -133,3 +133,30 @@ collections:
               widget: "string",
               hint: "e.g. \"Off-road riding locations\"",
             }
+          - {
+              label: "Hero Background Photo (optional)",
+              name: "heroImage",
+              widget: "image",
+              required: false,
+              hint: "Wide trail/ride photo shown behind the hero text, with a dark overlay. Leave blank to just use the plain background.",
+            }
+
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - name: "gallery"
+        label: "Photo Gallery"
+        file: "src/data/gallery.json"
+        fields:
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            summary: "{{caption}}"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - {
+                  label: "Caption (optional)",
+                  name: "caption",
+                  widget: "string",
+                  required: false,
+                }
