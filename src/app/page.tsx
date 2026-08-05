@@ -1,3 +1,5 @@
+const FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/fatemcmx";
+
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col">
@@ -24,15 +26,17 @@ export default function Home() {
             F.A.T.E.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-400">
-            A local crew of Florida dirt bike riders hitting the trails,
-            wrenching on bikes, and riding together every chance we get.
+            9,000+ Florida dirt bike riders hitting the trails, wrenching on
+            bikes, and riding together every chance we get.
           </p>
           <div className="mt-10 flex items-center justify-center gap-4">
             <a
-              href="#contact"
+              href={FACEBOOK_GROUP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-md bg-orange-600 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-500"
             >
-              Get In Touch
+              Join Us on Facebook
             </a>
             <a
               href="#about"
@@ -52,15 +56,18 @@ export default function Home() {
               About Us
             </h2>
             <p className="mt-4 max-w-3xl text-2xl font-semibold text-neutral-100">
-              We&apos;re a group of Florida off-road riders who&apos;d
-              rather be on two wheels than anywhere else.
+              We&apos;re a growing community of Florida off-road riders
+              who&apos;d rather be on two wheels than anywhere else.
             </p>
             <p className="mt-6 max-w-3xl text-neutral-400">
-              Whether it&apos;s a weekend trail day, a group ride out to one
-              of Florida&apos;s off-road parks, or just swapping stories and
-              wrench tips in the garage, F.A.T.E. is about riding together
-              and looking out for each other on and off the trail. Riders of
-              all experience levels are welcome.
+              F.A.T.E. — Florida Adventure and Trail Exploration — started as
+              a Facebook group and has grown into a community of over 9,000
+              riders. Whether it&apos;s a weekend trail day, a group ride out
+              to one of Florida&apos;s off-road parks, or just swapping
+              stories and wrench tips, F.A.T.E. is about riding together and
+              looking out for each other on and off the trail. Riders of all
+              experience levels are welcome — the easiest way to jump in is
+              through the Facebook group.
             </p>
           </div>
         </section>
@@ -70,7 +77,18 @@ export default function Home() {
         id="contact"
         className="border-t border-neutral-800 px-6 py-10 text-center text-sm text-neutral-500"
       >
-        <p>Want to ride with us? Reach out and say hey.</p>
+        <p>
+          Want to ride with us?{" "}
+          <a
+            href={FACEBOOK_GROUP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-500 hover:text-orange-400"
+          >
+            Join the Facebook group
+          </a>
+          .
+        </p>
         <p className="mt-2">© {new Date().getFullYear()} F.A.T.E.</p>
       </footer>
     </div>
