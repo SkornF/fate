@@ -2,7 +2,7 @@ backend:
   name: github
   repo: SkornF/fate
   branch: main
-  base_url: https://REPLACE-ME.workers.dev
+  base_url: https://sveltia-cms-auth.joepohl7.workers.dev
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
