@@ -24,3 +24,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-dot-grid {
+  background-image: radial-gradient(
+    rgba(249, 115, 22, 0.18) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}

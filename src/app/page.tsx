@@ -72,6 +72,49 @@ function MapPinIcon() {
   );
 }
 
+function FacebookIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="h-4 w-4 shrink-0"
+      aria-hidden="true"
+    >
+      <path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z" />
+    </svg>
+  );
+}
+
+function UsersIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="h-4 w-4 shrink-0"
+      aria-hidden="true"
+    >
+      <path d="M9 10a4 4 0 100-8 4 4 0 000 8zM3 18a6 6 0 0112 0v.5a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5V18zM16.5 8.5a3 3 0 10-2.7-4.3c-.13.26.02.55.28.66A5.98 5.98 0 0117 10v.28c0 .18.13.34.31.36 1.02.14 1.69-.9 1.69-1.9V8.5a2 2 0 00-2.5-1.94V8.5z" />
+    </svg>
+  );
+}
+
+function CalendarIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="h-4 w-4 shrink-0"
+      aria-hidden="true"
+    >
+      <path
+        fillRule="evenodd"
+        d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.5A2.25 2.25 0 0117.75 6.25v9A2.25 2.25 0 0115.5 17.5h-11A2.25 2.25 0 012.25 15.25v-9A2.25 2.25 0 014.5 4h.5V2.75A.75.75 0 015.75 2zM3.75 8v7.25c0 .414.336.75.75.75h11a.75.75 0 00.75-.75V8h-12.5z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
 export default function Home() {
   const now = new Date();
   const upcomingEvents = events
@@ -98,34 +141,73 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        <section className="mx-auto max-w-5xl px-6 py-24 text-center sm:py-32">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
-            Florida Off-Road Riding
-          </p>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl">
-            F.A.T.E.
-          </h1>
-          <p className="mt-2 text-sm font-medium text-neutral-500 sm:text-base">
-            {site.heroSubheading}
-          </p>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-400">
-            {site.memberCountText}
-          </p>
-          <div className="mt-10 flex items-center justify-center gap-4">
-            <a
-              href={site.facebookGroupUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-md bg-orange-600 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-500"
-            >
-              Join Us on Facebook
-            </a>
-            <a
-              href="#about"
-              className="rounded-md border border-neutral-700 px-6 py-3 text-sm font-semibold text-neutral-200 hover:border-neutral-500"
-            >
-              Learn More
-            </a>
+        <section className="relative overflow-hidden">
+          <div
+            className="bg-dot-grid pointer-events-none absolute inset-0"
+            style={{
+              maskImage:
+                "radial-gradient(ellipse 60% 55% at 50% 35%, black 0%, transparent 75%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse 60% 55% at 50% 35%, black 0%, transparent 75%)",
+            }}
+          />
+          <div className="relative mx-auto max-w-5xl px-6 py-24 text-center sm:py-32">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
+              Florida Off-Road Riding
+            </p>
+            <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl">
+              F.A.T.E.
+            </h1>
+            <p className="mt-2 text-sm font-medium text-neutral-500 sm:text-base">
+              {site.heroSubheading}
+            </p>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-400">
+              {site.memberCountText}
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-4">
+              <a
+                href={site.facebookGroupUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md bg-orange-600 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-500"
+              >
+                <FacebookIcon />
+                Join Us on Facebook
+              </a>
+              <a
+                href="#about"
+                className="rounded-md border border-neutral-700 px-6 py-3 text-sm font-semibold text-neutral-200 hover:border-neutral-500"
+              >
+                Learn More
+              </a>
+            </div>
+
+            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 border-t border-neutral-800 pt-10 sm:grid-cols-3">
+              <div>
+                <p className="text-3xl font-extrabold text-orange-500 sm:text-4xl">
+                  9,000+
+                </p>
+                <p className="mt-1 text-sm text-neutral-400">
+                  Riders in the group
+                </p>
+              </div>
+              <div>
+                <p className="text-3xl font-extrabold text-orange-500 sm:text-4xl">
+                  100%
+                </p>
+                <p className="mt-1 text-sm text-neutral-400">
+                  Grassroots &amp; rider-run
+                </p>
+              </div>
+              <div>
+                <p className="text-3xl font-extrabold text-orange-500 sm:text-4xl">
+                  FL
+                </p>
+                <p className="mt-1 text-sm text-neutral-400">
+                  Off-road trails statewide
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -134,7 +216,8 @@ export default function Home() {
           className="border-t border-neutral-800 bg-neutral-900/40"
         >
           <div className="mx-auto max-w-5xl px-6 py-20">
-            <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
+            <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
+              <UsersIcon />
               About Us
             </h2>
             <p className="mt-4 max-w-3xl text-2xl font-semibold text-neutral-100">
@@ -148,7 +231,8 @@ export default function Home() {
 
         <section id="events" className="border-t border-neutral-800">
           <div className="mx-auto max-w-5xl px-6 py-20">
-            <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
+            <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
+              <CalendarIcon />
               Upcoming Events
             </h2>
 
