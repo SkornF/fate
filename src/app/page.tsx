@@ -2,11 +2,18 @@ import Image from "next/image";
 import eventsData from "@/data/events.json";
 import siteContent from "@/data/site.json";
 import galleryData from "@/data/gallery.json";
-import type { FateEvent, SiteContent, GalleryImage } from "@/data/types";
+import ridingAreasData from "@/data/riding-areas.json";
+import type {
+  FateEvent,
+  SiteContent,
+  GalleryImage,
+  RidingArea,
+} from "@/data/types";
 
 const events = eventsData.events as FateEvent[];
 const site = siteContent as SiteContent;
 const galleryImages = galleryData.images as GalleryImage[];
+const ridingAreas = ridingAreasData.areas as RidingArea[];
 
 const DATE_OPTS: Intl.DateTimeFormatOptions = {
   weekday: "short",
@@ -24,6 +31,15 @@ function getMapHref(event: FateEvent) {
     event.mapUrl ||
     `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
       event.location,
+    )}`
+  );
+}
+
+function getAreaMapHref(area: RidingArea) {
+  return (
+    area.mapUrl ||
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      `${area.name} ${area.region}`,
     )}`
   );
 }
@@ -118,6 +134,23 @@ function CalendarIcon() {
   );
 }
 
+function CompassIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="h-4 w-4 shrink-0"
+      aria-hidden="true"
+    >
+      <path
+        fillRule="evenodd"
+        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.06-11.06a.75.75 0 01.24.86l-1.4 3.9a1.5 1.5 0 01-.9.9l-3.9 1.4a.75.75 0 01-.96-.96l1.4-3.9a1.5 1.5 0 01.9-.9l3.9-1.4a.75.75 0 01.72.1z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
 function CameraIcon() {
   return (
     <svg
@@ -150,6 +183,11 @@ export default function Home() {
             <a href="#about" className="hover:text-neutral-100">
               About
             </a>
+            {ridingAreas.length > 0 && (
+              <a href="#riding-areas" className="hover:text-neutral-100">
+                Riding Areas
+              </a>
+            )}
             <a href="#events" className="hover:text-neutral-100">
               Events
             </a>
@@ -265,6 +303,76 @@ export default function Home() {
             </p>
           </div>
         </section>
+
+        {ridingAreas.length > 0 && (
+          <section id="riding-areas" className="border-t border-neutral-800">
+            <div className="mx-auto max-w-5xl px-6 py-20">
+              <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
+                <CompassIcon />
+                Riding Areas
+              </h2>
+
+              <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {ridingAreas.map((area) => (
+                  <li
+                    key={area.name}
+                    className="overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900/40"
+                  >
+                    {area.image && (
+                      <div className="relative aspect-video w-full">
+                        <Image
+                          src={area.image}
+                          alt=""
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="p-5">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3 className="text-lg font-semibold text-neutral-100">
+                          {area.name}
+                        </h3>
+                        {area.type && (
+                          <span className="rounded-full bg-orange-600/10 px-2 py-0.5 text-xs font-semibold text-orange-500">
+                            {area.type}
+                          </span>
+                        )}
+                      </div>
+                      <p className="mt-1 text-sm text-neutral-500">
+                        {area.region}
+                      </p>
+                      <p className="mt-3 text-sm text-neutral-400">
+                        {area.description}
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+                        <a
+                          href={getAreaMapHref(area)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 font-medium text-orange-500 hover:text-orange-400"
+                        >
+                          <MapPinIcon />
+                          Map
+                        </a>
+                        {area.moreInfoUrl && (
+                          <a
+                            href={area.moreInfoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium text-orange-500 hover:text-orange-400"
+                          >
+                            More info ↗
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
 
         <section id="events" className="border-t border-neutral-800">
           <div className="mx-auto max-w-5xl px-6 py-20">

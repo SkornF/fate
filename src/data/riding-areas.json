@@ -1,0 +1,22 @@
+{
+  "areas": [
+    {
+      "name": "Ocala National Forest",
+      "type": "National Forest",
+      "region": "Ocala, FL",
+      "description": "Add trail details, permit/pass requirements, and difficulty here."
+    },
+    {
+      "name": "Richloam WMA",
+      "type": "WMA",
+      "region": "Sumter County, FL",
+      "description": "Add trail details, permit/pass requirements, and difficulty here."
+    },
+    {
+      "name": "Tate's Hell State Forest",
+      "type": "State Forest",
+      "region": "Franklin County, FL",
+      "description": "Add trail details, permit/pass requirements, and difficulty here."
+    }
+  ]
+}

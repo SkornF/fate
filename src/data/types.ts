@@ -27,3 +27,13 @@ export type GalleryImage = {
   image: string;
   caption?: string;
 };
+
+export type RidingArea = {
+  name: string;
+  type?: string; // e.g. "National Forest", "WMA", "State Forest"
+  region: string; // e.g. "Ocala, FL"
+  description: string;
+  mapUrl?: string; // full Google Maps link; auto-generated from name + region if omitted
+  moreInfoUrl?: string; // official site with permit/trail info
+  image?: string;
+};

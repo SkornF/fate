@@ -160,3 +160,61 @@ collections:
                   widget: "string",
                   required: false,
                 }
+
+  - name: "riding-areas"
+    label: "Riding Areas"
+    files:
+      - name: "riding-areas"
+        label: "Riding Areas"
+        file: "src/data/riding-areas.json"
+        fields:
+          - label: "Areas"
+            name: "areas"
+            widget: "list"
+            summary: "{{name}}"
+            fields:
+              - {
+                  label: "Name",
+                  name: "name",
+                  widget: "string",
+                  hint: "e.g. Ocala National Forest",
+                }
+              - {
+                  label: "Type (optional)",
+                  name: "type",
+                  widget: "string",
+                  required: false,
+                  hint: "e.g. National Forest, WMA, State Forest",
+                }
+              - {
+                  label: "Region",
+                  name: "region",
+                  widget: "string",
+                  hint: "e.g. Ocala, FL",
+                }
+              - {
+                  label: "Description",
+                  name: "description",
+                  widget: "text",
+                  hint: "Trail conditions, permit/pass requirements, difficulty, anything riders should know before heading out.",
+                }
+              - {
+                  label: "Map Link (optional)",
+                  name: "mapUrl",
+                  widget: "string",
+                  required: false,
+                  hint: "Paste a Google Maps link. Leave blank and the site will auto-search the Name + Region instead.",
+                }
+              - {
+                  label: "More Info Link (optional)",
+                  name: "moreInfoUrl",
+                  widget: "string",
+                  required: false,
+                  hint: "Official site with permit/trail info, e.g. the Forest Service or FWC page.",
+                }
+              - {
+                  label: "Photo (optional)",
+                  name: "image",
+                  widget: "image",
+                  required: false,
+                }
