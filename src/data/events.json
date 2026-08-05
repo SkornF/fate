@@ -1,24 +1,10 @@
 {
   "events": [
     {
-      "title": "Croom Trail Day",
-      "start": "2026-09-19T09:00",
-      "end": "2026-09-19T15:00",
-      "location": "Croom Motorcycle Area, Brooksville, FL",
-      "description": "Meet at the main trailhead. Bring water and a spare tube.",
-      "link": "https://www.facebook.com/groups/fatemcmx"
-    },
-    {
-      "title": "Ocala National Forest Weekend Ride",
-      "start": "2026-10-10T08:00",
-      "end": "2026-10-11T17:00",
-      "location": "Ocala National Forest, FL",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Ocala+National+Forest"
-    },
-    {
-      "title": "Monthly Meetup",
-      "start": "2026-09-05T18:30",
-      "location": "Local trailhead parking lot"
+      "title": "6th Annual Fall Foliage Ride",
+      "start": "2026-10-10T09:00",
+      "location": "Two Wheels of Suches",
+      "description": "I know it's waaaay early to think about the Fall Foliage Ride, but I wanted to remind everyone who's coming of the importance of early accommodations. If you're even thinking of coming, you should book lodging now. This is peak tourism season in the area and cabins book-up a year in advance. Plus there are always other, bigger events at TWoS on that same weekend, so plan ahead.\n**Update**\nAll the cabins and rooms at TWoS are rented. You'll have to find accommodations elsewhere. Contact TWoS here: https://twowheelsofsuches.com/\nThere are also multiple Airbnb rentals available and some wineries/resorts in the area that offer accommodations. Here are some cabins just up the road from TWoS: https://www.kennedycreekresort.com/ There is also camping at TWoS & other more remote sites in the area."
     }
   ]
 }
