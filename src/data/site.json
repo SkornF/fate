@@ -4,5 +4,10 @@
   "aboutHeadline": "We're a growing community of Florida off-road riders who'd rather be on two wheels than anywhere else.",
   "aboutBody": "F.A.T.E. — Florida Adventure & Trail Exploration — started as a Facebook group and has grown into a community of over 9,000 riders. Whether it's a weekend trail day, a group ride out to one of Florida's off-road parks, or just swapping stories and wrench tips, F.A.T.E. is about riding together and looking out for each other on and off the trail. Riders of all experience levels are welcome — the easiest way to jump in is through the Facebook group.",
   "facebookGroupUrl": "https://www.facebook.com/groups/fatemcmx",
-  "offroadLocationsCount": 10
+  "stat1Value": "9,000+",
+  "stat1Label": "Riders in the group",
+  "stat2Value": "100%",
+  "stat2Label": "Grassroots & rider-run",
+  "stat3Value": "10+",
+  "stat3Label": "Off-road riding locations"
 }

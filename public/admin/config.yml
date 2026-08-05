@@ -98,10 +98,38 @@ collections:
               widget: "string",
             }
           - {
-              label: "Off-Road Riding Locations (count)",
-              name: "offroadLocationsCount",
-              widget: "number",
-              value_type: "int",
-              min: 0,
-              hint: "Shown on the homepage as a stat, e.g. \"12+ Off-road riding locations\".",
+              label: "Stat 1 Value",
+              name: "stat1Value",
+              widget: "string",
+              hint: "e.g. \"9,000+\"",
+            }
+          - {
+              label: "Stat 1 Label",
+              name: "stat1Label",
+              widget: "string",
+              hint: "e.g. \"Riders in the group\"",
+            }
+          - {
+              label: "Stat 2 Value",
+              name: "stat2Value",
+              widget: "string",
+              hint: "e.g. \"100%\"",
+            }
+          - {
+              label: "Stat 2 Label",
+              name: "stat2Label",
+              widget: "string",
+              hint: "e.g. \"Grassroots & rider-run\"",
+            }
+          - {
+              label: "Stat 3 Value",
+              name: "stat3Value",
+              widget: "string",
+              hint: "e.g. \"10+\"",
+            }
+          - {
+              label: "Stat 3 Label",
+              name: "stat3Label",
+              widget: "string",
+              hint: "e.g. \"Off-road riding locations\"",
             }

@@ -185,26 +185,26 @@ export default function Home() {
             <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 border-t border-neutral-800 pt-10 sm:grid-cols-3">
               <div>
                 <p className="text-3xl font-extrabold text-orange-500 sm:text-4xl">
-                  9,000+
+                  {site.stat1Value}
                 </p>
                 <p className="mt-1 text-sm text-neutral-400">
-                  Riders in the group
+                  {site.stat1Label}
                 </p>
               </div>
               <div>
                 <p className="text-3xl font-extrabold text-orange-500 sm:text-4xl">
-                  100%
+                  {site.stat2Value}
                 </p>
                 <p className="mt-1 text-sm text-neutral-400">
-                  Grassroots &amp; rider-run
+                  {site.stat2Label}
                 </p>
               </div>
               <div>
                 <p className="text-3xl font-extrabold text-orange-500 sm:text-4xl">
-                  {site.offroadLocationsCount}+
+                  {site.stat3Value}
                 </p>
                 <p className="mt-1 text-sm text-neutral-400">
-                  Off-road riding locations
+                  {site.stat3Label}
                 </p>
               </div>
             </div>
