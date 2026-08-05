@@ -1,0 +1,74 @@
+backend:
+  name: github
+  repo: SkornF/fate
+  branch: main
+  base_url: https://REPLACE-ME.workers.dev
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "events"
+    label: "Events"
+    files:
+      - name: "events"
+        label: "Upcoming Events"
+        file: "src/data/events.json"
+        fields:
+          - label: "Events"
+            name: "events"
+            widget: "list"
+            summary: "{{title}} — {{date}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - {
+                  label: "Date",
+                  name: "date",
+                  widget: "datetime",
+                  format: "YYYY-MM-DD",
+                  date_format: "YYYY-MM-DD",
+                  time_format: false,
+                  picker_utc: true,
+                }
+              - { label: "Location", name: "location", widget: "string" }
+              - {
+                  label: "Description",
+                  name: "description",
+                  widget: "text",
+                  required: false,
+                }
+              - {
+                  label: "Link (optional)",
+                  name: "link",
+                  widget: "string",
+                  required: false,
+                }
+
+  - name: "site"
+    label: "Site Content"
+    files:
+      - name: "settings"
+        label: "General Settings"
+        file: "src/data/site.json"
+        fields:
+          - {
+              label: "Member Count Blurb (hero text)",
+              name: "memberCountText",
+              widget: "string",
+            }
+          - {
+              label: "Hero Subheading",
+              name: "heroSubheading",
+              widget: "string",
+            }
+          - {
+              label: "About Headline",
+              name: "aboutHeadline",
+              widget: "string",
+            }
+          - { label: "About Body", name: "aboutBody", widget: "text" }
+          - {
+              label: "Facebook Group URL",
+              name: "facebookGroupUrl",
+              widget: "string",
+            }

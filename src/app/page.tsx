@@ -1,6 +1,9 @@
-import { events } from "@/data/events";
+import eventsData from "@/data/events.json";
+import siteContent from "@/data/site.json";
+import type { FateEvent, SiteContent } from "@/data/types";
 
-const FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/fatemcmx";
+const events = eventsData.events as FateEvent[];
+const site = siteContent as SiteContent;
 
 function formatEventDate(dateStr: string) {
   const [year, month, day] = dateStr.split("-").map(Number);
@@ -47,15 +50,14 @@ export default function Home() {
             F.A.T.E.
           </h1>
           <p className="mt-2 text-sm font-medium text-neutral-500 sm:text-base">
-            Florida Adventure &amp; Trail Exploration
+            {site.heroSubheading}
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-400">
-            9,000+ Florida dirt bike riders hitting the trails, wrenching on
-            bikes, and riding together every chance we get.
+            {site.memberCountText}
           </p>
           <div className="mt-10 flex items-center justify-center gap-4">
             <a
-              href={FACEBOOK_GROUP_URL}
+              href={site.facebookGroupUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-md bg-orange-600 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-500"
@@ -80,18 +82,10 @@ export default function Home() {
               About Us
             </h2>
             <p className="mt-4 max-w-3xl text-2xl font-semibold text-neutral-100">
-              We&apos;re a growing community of Florida off-road riders
-              who&apos;d rather be on two wheels than anywhere else.
+              {site.aboutHeadline}
             </p>
             <p className="mt-6 max-w-3xl text-neutral-400">
-              F.A.T.E. — Florida Adventure &amp; Trail Exploration — started as
-              a Facebook group and has grown into a community of over 9,000
-              riders. Whether it&apos;s a weekend trail day, a group ride out
-              to one of Florida&apos;s off-road parks, or just swapping
-              stories and wrench tips, F.A.T.E. is about riding together and
-              looking out for each other on and off the trail. Riders of all
-              experience levels are welcome — the easiest way to jump in is
-              through the Facebook group.
+              {site.aboutBody}
             </p>
           </div>
         </section>
@@ -107,7 +101,7 @@ export default function Home() {
                 Nothing posted here yet — rides and trail days are being
                 planned all the time in the{" "}
                 <a
-                  href={FACEBOOK_GROUP_URL}
+                  href={site.facebookGroupUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-orange-500 hover:text-orange-400"
@@ -163,7 +157,7 @@ export default function Home() {
         <p>
           Want to ride with us?{" "}
           <a
-            href={FACEBOOK_GROUP_URL}
+            href={site.facebookGroupUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-orange-500 hover:text-orange-400"
