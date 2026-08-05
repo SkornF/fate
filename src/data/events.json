@@ -1,3 +1,24 @@
 {
-  "events": []
+  "events": [
+    {
+      "title": "Croom Trail Day",
+      "start": "2026-09-19T09:00",
+      "end": "2026-09-19T15:00",
+      "location": "Croom Motorcycle Area, Brooksville, FL",
+      "description": "Meet at the main trailhead. Bring water and a spare tube.",
+      "link": "https://www.facebook.com/groups/fatemcmx"
+    },
+    {
+      "title": "Ocala National Forest Weekend Ride",
+      "start": "2026-10-10T08:00",
+      "end": "2026-10-11T17:00",
+      "location": "Ocala National Forest, FL",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Ocala+National+Forest"
+    },
+    {
+      "title": "Monthly Meetup",
+      "start": "2026-09-05T18:30",
+      "location": "Local trailhead parking lot"
+    }
+  ]
 }

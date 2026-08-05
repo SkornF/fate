@@ -1,7 +1,9 @@
 export type FateEvent = {
   title: string;
-  date: string; // YYYY-MM-DD
+  start: string; // YYYY-MM-DDTHH:mm
+  end?: string; // YYYY-MM-DDTHH:mm, omit for a single point-in-time event
   location: string;
+  mapUrl?: string; // full Google Maps link; auto-generated from location if omitted
   description?: string;
   link?: string;
 };

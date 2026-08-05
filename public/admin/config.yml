@@ -18,19 +18,43 @@ collections:
           - label: "Events"
             name: "events"
             widget: "list"
-            summary: "{{title}} — {{date}}"
+            summary: "{{title}} — {{fields.start}}"
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - {
-                  label: "Date",
-                  name: "date",
+                  label: "Starts",
+                  name: "start",
                   widget: "datetime",
-                  format: "YYYY-MM-DD",
+                  format: "YYYY-MM-DDTHH:mm",
                   date_format: "YYYY-MM-DD",
-                  time_format: false,
-                  picker_utc: true,
+                  time_format: "HH:mm",
+                  picker_utc: false,
+                  hint: "When the ride/event starts.",
                 }
-              - { label: "Location", name: "location", widget: "string" }
+              - {
+                  label: "Ends (optional)",
+                  name: "end",
+                  widget: "datetime",
+                  format: "YYYY-MM-DDTHH:mm",
+                  date_format: "YYYY-MM-DD",
+                  time_format: "HH:mm",
+                  picker_utc: false,
+                  required: false,
+                  hint: "Leave blank for a single start time with no set end. Use a later date here for multi-day events.",
+                }
+              - {
+                  label: "Location Name",
+                  name: "location",
+                  widget: "string",
+                  hint: "e.g. Croom Motorcycle Area, Brooksville, FL",
+                }
+              - {
+                  label: "Map Link (optional)",
+                  name: "mapUrl",
+                  widget: "string",
+                  required: false,
+                  hint: "Paste a Google Maps link (open the location in Google Maps, click Share, copy link). Leave blank and the site will auto-search the Location Name instead.",
+                }
               - {
                   label: "Description",
                   name: "description",
@@ -42,6 +66,7 @@ collections:
                   name: "link",
                   widget: "string",
                   required: false,
+                  hint: "e.g. a link to the Facebook event.",
                 }
 
   - name: "site"

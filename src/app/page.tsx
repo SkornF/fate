@@ -5,22 +5,78 @@ import type { FateEvent, SiteContent } from "@/data/types";
 const events = eventsData.events as FateEvent[];
 const site = siteContent as SiteContent;
 
-function formatEventDate(dateStr: string) {
-  const [year, month, day] = dateStr.split("-").map(Number);
-  return new Date(year, month - 1, day).toLocaleDateString("en-US", {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+const DATE_OPTS: Intl.DateTimeFormatOptions = {
+  weekday: "short",
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+};
+const TIME_OPTS: Intl.DateTimeFormatOptions = {
+  hour: "numeric",
+  minute: "2-digit",
+};
+
+function getMapHref(event: FateEvent) {
+  return (
+    event.mapUrl ||
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      event.location,
+    )}`
+  );
+}
+
+function getDateBadge(event: FateEvent) {
+  const start = new Date(event.start);
+  return {
+    month: start.toLocaleDateString("en-US", { month: "short" }).toUpperCase(),
+    day: start.getDate(),
+  };
+}
+
+function formatEventWhen(event: FateEvent) {
+  const start = new Date(event.start);
+  const end = event.end ? new Date(event.end) : null;
+
+  const startDateStr = start.toLocaleDateString("en-US", DATE_OPTS);
+  const startTimeStr = start.toLocaleTimeString("en-US", TIME_OPTS);
+
+  if (!end) {
+    return `${startDateStr} · ${startTimeStr}`;
+  }
+
+  const endTimeStr = end.toLocaleTimeString("en-US", TIME_OPTS);
+  const sameDay = start.toDateString() === end.toDateString();
+
+  if (sameDay) {
+    return `${startDateStr} · ${startTimeStr} – ${endTimeStr}`;
+  }
+
+  const endDateStr = end.toLocaleDateString("en-US", DATE_OPTS);
+  return `${startDateStr}, ${startTimeStr} – ${endDateStr}, ${endTimeStr}`;
+}
+
+function MapPinIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="h-4 w-4 shrink-0"
+      aria-hidden="true"
+    >
+      <path
+        fillRule="evenodd"
+        d="M10 18s6-5.686 6-10a6 6 0 10-12 0c0 4.314 6 10 6 10zm0-7a3 3 0 100-6 3 3 0 000 6z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
 }
 
 export default function Home() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const now = new Date();
   const upcomingEvents = events
-    .filter((event) => new Date(`${event.date}T00:00:00`) >= today)
-    .sort((a, b) => a.date.localeCompare(b.date));
+    .filter((event) => new Date(event.end ?? event.start) >= now)
+    .sort((a, b) => a.start.localeCompare(b.start));
 
   return (
     <div className="flex flex-1 flex-col">
@@ -112,38 +168,57 @@ export default function Home() {
               </p>
             ) : (
               <ul className="mt-8 space-y-4">
-                {upcomingEvents.map((event) => (
-                  <li
-                    key={`${event.date}-${event.title}`}
-                    className="flex flex-col gap-1 rounded-md border border-neutral-800 bg-neutral-900/40 p-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
-                  >
-                    <div>
-                      <p className="text-lg font-semibold text-neutral-100">
-                        {event.link ? (
-                          <a
-                            href={event.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-orange-500"
-                          >
-                            {event.title}
-                          </a>
-                        ) : (
-                          event.title
-                        )}
-                      </p>
-                      {event.description && (
-                        <p className="mt-1 text-sm text-neutral-400">
-                          {event.description}
+                {upcomingEvents.map((event) => {
+                  const badge = getDateBadge(event);
+                  return (
+                    <li
+                      key={`${event.start}-${event.title}`}
+                      className="group flex gap-5 rounded-lg border border-neutral-800 bg-neutral-900/40 p-5 transition-colors hover:border-orange-600/40"
+                    >
+                      <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-md bg-orange-600/10">
+                        <span className="text-xs font-bold uppercase tracking-wide text-orange-500">
+                          {badge.month}
+                        </span>
+                        <span className="text-2xl font-extrabold leading-none text-orange-500">
+                          {badge.day}
+                        </span>
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-lg font-semibold text-neutral-100">
+                          {event.link ? (
+                            <a
+                              href={event.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="transition-colors group-hover:text-orange-500"
+                            >
+                              {event.title}
+                            </a>
+                          ) : (
+                            event.title
+                          )}
                         </p>
-                      )}
-                    </div>
-                    <div className="shrink-0 text-sm text-neutral-400 sm:text-right">
-                      <p>{formatEventDate(event.date)}</p>
-                      <p>{event.location}</p>
-                    </div>
-                  </li>
-                ))}
+                        <p className="mt-1 text-sm text-neutral-400">
+                          {formatEventWhen(event)}
+                        </p>
+                        {event.description && (
+                          <p className="mt-2 text-sm text-neutral-400">
+                            {event.description}
+                          </p>
+                        )}
+                        <a
+                          href={getMapHref(event)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-orange-500 hover:text-orange-400"
+                        >
+                          <MapPinIcon />
+                          {event.location}
+                        </a>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             )}
           </div>
