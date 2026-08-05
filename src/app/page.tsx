@@ -1,6 +1,24 @@
+import { events } from "@/data/events";
+
 const FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/fatemcmx";
 
+function formatEventDate(dateStr: string) {
+  const [year, month, day] = dateStr.split("-").map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
 export default function Home() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const upcomingEvents = events
+    .filter((event) => new Date(`${event.date}T00:00:00`) >= today)
+    .sort((a, b) => a.date.localeCompare(b.date));
+
   return (
     <div className="flex flex-1 flex-col">
       <header className="border-b border-neutral-800">
@@ -9,6 +27,9 @@ export default function Home() {
           <div className="flex gap-6 text-sm text-neutral-400">
             <a href="#about" className="hover:text-neutral-100">
               About
+            </a>
+            <a href="#events" className="hover:text-neutral-100">
+              Events
             </a>
             <a href="#contact" className="hover:text-neutral-100">
               Contact
@@ -69,6 +90,65 @@ export default function Home() {
               experience levels are welcome — the easiest way to jump in is
               through the Facebook group.
             </p>
+          </div>
+        </section>
+
+        <section id="events" className="border-t border-neutral-800">
+          <div className="mx-auto max-w-5xl px-6 py-20">
+            <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
+              Upcoming Events
+            </h2>
+
+            {upcomingEvents.length === 0 ? (
+              <p className="mt-4 max-w-2xl text-neutral-400">
+                Nothing posted here yet — rides and trail days are being
+                planned all the time in the{" "}
+                <a
+                  href={FACEBOOK_GROUP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-orange-500 hover:text-orange-400"
+                >
+                  Facebook group
+                </a>
+                . Check there for the latest.
+              </p>
+            ) : (
+              <ul className="mt-8 space-y-4">
+                {upcomingEvents.map((event) => (
+                  <li
+                    key={`${event.date}-${event.title}`}
+                    className="flex flex-col gap-1 rounded-md border border-neutral-800 bg-neutral-900/40 p-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+                  >
+                    <div>
+                      <p className="text-lg font-semibold text-neutral-100">
+                        {event.link ? (
+                          <a
+                            href={event.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-orange-500"
+                          >
+                            {event.title}
+                          </a>
+                        ) : (
+                          event.title
+                        )}
+                      </p>
+                      {event.description && (
+                        <p className="mt-1 text-sm text-neutral-400">
+                          {event.description}
+                        </p>
+                      )}
+                    </div>
+                    <div className="shrink-0 text-sm text-neutral-400 sm:text-right">
+                      <p>{formatEventDate(event.date)}</p>
+                      <p>{event.location}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </section>
       </main>
