@@ -97,3 +97,11 @@ collections:
               name: "facebookGroupUrl",
               widget: "string",
             }
+          - {
+              label: "Off-Road Riding Locations (count)",
+              name: "offroadLocationsCount",
+              widget: "number",
+              value_type: "int",
+              min: 0,
+              hint: "Shown on the homepage as a stat, e.g. \"12+ Off-road riding locations\".",
+            }

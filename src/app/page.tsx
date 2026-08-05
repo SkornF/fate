@@ -201,10 +201,10 @@ export default function Home() {
               </div>
               <div>
                 <p className="text-3xl font-extrabold text-orange-500 sm:text-4xl">
-                  FL
+                  {site.offroadLocationsCount}+
                 </p>
                 <p className="mt-1 text-sm text-neutral-400">
-                  Off-road trails statewide
+                  Off-road riding locations
                 </p>
               </div>
             </div>

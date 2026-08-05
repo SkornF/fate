@@ -14,4 +14,5 @@ export type SiteContent = {
   aboutHeadline: string;
   aboutBody: string;
   facebookGroupUrl: string;
+  offroadLocationsCount: number;
 };
