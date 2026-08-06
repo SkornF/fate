@@ -207,7 +207,15 @@ export default function Home() {
         <section className="relative overflow-hidden">
           {site.heroImage && (
             <>
-              <div className="absolute inset-x-0 top-0 aspect-[4/3] sm:aspect-auto sm:h-full">
+              <div
+                className="absolute inset-x-0 top-0 aspect-[4/3] sm:aspect-auto sm:h-full"
+                style={{
+                  maskImage:
+                    "linear-gradient(to bottom, black 55%, transparent 100%)",
+                  WebkitMaskImage:
+                    "linear-gradient(to bottom, black 55%, transparent 100%)",
+                }}
+              >
                 <Image
                   src={site.heroImage}
                   alt=""
