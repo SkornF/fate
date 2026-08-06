@@ -9,6 +9,7 @@ export type FateEvent = {
 };
 
 export type SiteContent = {
+  heroLabel: string;
   memberCountText: string;
   heroSubheading: string;
   aboutHeadline: string;

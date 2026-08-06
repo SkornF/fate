@@ -238,7 +238,7 @@ export default function Home() {
           />
           <div className="relative mx-auto max-w-5xl px-6 py-24 text-center sm:py-32">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-500">
-              Florida Off-Road Riding
+              {site.heroLabel}
             </p>
             <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl">
               F.A.T.E.

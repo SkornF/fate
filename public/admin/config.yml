@@ -77,6 +77,12 @@ collections:
         file: "src/data/site.json"
         fields:
           - {
+              label: "Hero Top Banner Text",
+              name: "heroLabel",
+              widget: "string",
+              hint: "Small orange label above the F.A.T.E. title, e.g. \"Florida Off-Road Riding\"",
+            }
+          - {
               label: "Member Count Blurb (hero text)",
               name: "memberCountText",
               widget: "string",
