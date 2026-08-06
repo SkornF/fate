@@ -207,7 +207,7 @@ export default function Home() {
         <section className="relative overflow-hidden">
           {site.heroImage && (
             <>
-              <div className="absolute inset-x-0 top-0 h-[65vh] max-h-[560px] sm:h-full sm:max-h-none">
+              <div className="absolute inset-x-0 top-0 aspect-[4/3] sm:aspect-auto sm:h-full">
                 <Image
                   src={site.heroImage}
                   alt=""
