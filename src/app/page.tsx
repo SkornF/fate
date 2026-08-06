@@ -207,13 +207,15 @@ export default function Home() {
         <section className="relative overflow-hidden">
           {site.heroImage && (
             <>
-              <Image
-                src={site.heroImage}
-                alt=""
-                fill
-                priority
-                className="object-cover"
-              />
+              <div className="absolute inset-x-0 top-0 h-[65vh] max-h-[560px] sm:h-full sm:max-h-none">
+                <Image
+                  src={site.heroImage}
+                  alt=""
+                  fill
+                  priority
+                  className="object-cover"
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/55 via-neutral-950/80 to-neutral-950" />
             </>
           )}
