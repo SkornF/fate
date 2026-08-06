@@ -17,6 +17,18 @@
       "type": "State Forest",
       "region": "Franklin County, FL",
       "description": "Add trail details, permit/pass requirements, and difficulty here."
+    },
+    {
+      "name": "Croom Motorcycle Area",
+      "type": "OHV Area",
+      "region": "Brooksville, FL",
+      "description": "Add trail details, permit/pass requirements, and difficulty here."
+    },
+    {
+      "name": "Citrus WMA",
+      "type": "WMA",
+      "region": "Citrus County, FL",
+      "description": "Add trail details, permit/pass requirements, and difficulty here."
     }
   ]
 }
