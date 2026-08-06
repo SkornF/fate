@@ -29,6 +29,24 @@
       "type": "WMA",
       "region": "Citrus County, FL",
       "description": "Add trail details, permit/pass requirements, and difficulty here."
+    },
+    {
+      "name": "Apalachicola National Forest",
+      "type": "National Forest",
+      "region": "Tallahassee, FL",
+      "description": "Add trail details, permit/pass requirements, and difficulty here."
+    },
+    {
+      "name": "Clear Creek OHV Area",
+      "type": "OHV Area",
+      "region": "Milton, FL",
+      "description": "Add trail details, permit/pass requirements, and difficulty here."
+    },
+    {
+      "name": "Babcock-Webb WMA",
+      "type": "WMA",
+      "region": "Punta Gorda, FL",
+      "description": "Add trail details, permit/pass requirements, and difficulty here."
     }
   ]
 }
