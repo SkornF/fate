@@ -4,7 +4,9 @@
       "name": "Ocala National Forest",
       "type": "National Forest",
       "region": "Ocala, FL",
-      "description": "Add trail details, permit/pass requirements, and difficulty here."
+      "description": "Add trail details, permit/pass requirements, and difficulty here.",
+      "mapUrl": "Wandering wiregrass",
+      "moreInfoUrl": "https://www.fs.usda.gov/r08/florida/recreation/opportunities/highway-vehicles-ohv"
     },
     {
       "name": "Richloam WMA",
