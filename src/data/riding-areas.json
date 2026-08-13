@@ -4,51 +4,73 @@
       "name": "Ocala National Forest",
       "type": "National Forest",
       "region": "Ocala, FL",
-      "description": "Add trail details, permit/pass requirements, and difficulty here.",
-      "mapUrl": "Wandering wiregrass",
-      "moreInfoUrl": "https://www.fs.usda.gov/r08/florida/recreation/opportunities/highway-vehicles-ohv"
+      "description": "-Does require a permit to ride here, follow link.\n\nOcala forest is one of the largest areas you can ride in Central Florida area.  Both plated and\nOHV can ride here, though in their respective areas. Most start from the south area (Wandering Wiregrass) or the north area (Rodman Dam trailhead).  Can find many GPX files in the Facebook files tabes.",
+      "mapUrl": "https://maps.app.goo.gl/QVpZqFLMj1H5bnWV8",
+      "moreInfoUrl": "https://www.fs.usda.gov/r08/florida/recreation/opportunities/highway-vehicles-ohv",
+      "image": "/images/uploads/ChatGPT Image Aug 13, 2026, 07_46_00 AM.png"
     },
     {
       "name": "Richloam WMA",
       "type": "WMA",
       "region": "Sumter County, FL",
-      "description": "Add trail details, permit/pass requirements, and difficulty here."
+      "description": "Add trail details, permit/pass requirements, and difficulty here.",
+      "mapUrl": "",
+      "moreInfoUrl": "",
+      "image": ""
     },
     {
       "name": "Tate's Hell State Forest",
       "type": "State Forest",
       "region": "Franklin County, FL",
-      "description": "Add trail details, permit/pass requirements, and difficulty here."
+      "description": "Add trail details, permit/pass requirements, and difficulty here.",
+      "mapUrl": "",
+      "moreInfoUrl": "",
+      "image": ""
     },
     {
       "name": "Croom Motorcycle Area",
       "type": "OHV Area",
       "region": "Brooksville, FL",
-      "description": "Add trail details, permit/pass requirements, and difficulty here."
+      "description": "Add trail details, permit/pass requirements, and difficulty here.",
+      "mapUrl": "",
+      "moreInfoUrl": "",
+      "image": ""
     },
     {
       "name": "Citrus WMA",
       "type": "WMA",
       "region": "Citrus County, FL",
-      "description": "Add trail details, permit/pass requirements, and difficulty here."
+      "description": "Add trail details, permit/pass requirements, and difficulty here.",
+      "mapUrl": "",
+      "moreInfoUrl": "",
+      "image": ""
     },
     {
       "name": "Apalachicola National Forest",
       "type": "National Forest",
       "region": "Tallahassee, FL",
-      "description": "Add trail details, permit/pass requirements, and difficulty here."
+      "description": "Add trail details, permit/pass requirements, and difficulty here.",
+      "mapUrl": "",
+      "moreInfoUrl": "",
+      "image": ""
     },
     {
       "name": "Clear Creek OHV Area",
       "type": "OHV Area",
       "region": "Milton, FL",
-      "description": "Add trail details, permit/pass requirements, and difficulty here."
+      "description": "Add trail details, permit/pass requirements, and difficulty here.",
+      "mapUrl": "",
+      "moreInfoUrl": "",
+      "image": ""
     },
     {
       "name": "Babcock-Webb WMA",
       "type": "WMA",
       "region": "Punta Gorda, FL",
-      "description": "Add trail details, permit/pass requirements, and difficulty here."
+      "description": "Add trail details, permit/pass requirements, and difficulty here.",
+      "mapUrl": "",
+      "moreInfoUrl": "",
+      "image": ""
     }
   ]
 }
