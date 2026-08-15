@@ -151,6 +151,25 @@ function CompassIcon() {
   );
 }
 
+function ExpandIcon() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      className="h-6 w-6 text-white"
+      aria-hidden="true"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M7 3H3v4M13 3h4v4M17 13v4h-4M3 13v4h4"
+      />
+    </svg>
+  );
+}
+
 function CameraIcon() {
   return (
     <svg
@@ -329,14 +348,22 @@ export default function Home() {
                     className="overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900/40"
                   >
                     {area.image && (
-                      <div className="relative aspect-video w-full">
+                      <a
+                        href={area.image}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative block aspect-video w-full"
+                      >
                         <Image
                           src={area.image}
                           alt=""
                           fill
-                          className="object-cover"
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
                         />
-                      </div>
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-200 group-hover:bg-black/30 group-hover:opacity-100">
+                          <ExpandIcon />
+                        </div>
+                      </a>
                     )}
                     <div className="p-5">
                       <div className="flex flex-wrap items-center gap-2">
