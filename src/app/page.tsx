@@ -278,12 +278,6 @@ export default function Home() {
                 <FacebookIcon />
                 Join Us on Facebook
               </a>
-              <a
-                href="#about"
-                className="rounded-md border border-neutral-700 bg-neutral-950/40 px-6 py-3 text-sm font-semibold text-neutral-200 backdrop-blur-sm hover:border-neutral-500"
-              >
-                Learn More
-              </a>
             </div>
 
             <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 border-t border-neutral-800 pt-10 sm:grid-cols-3">
