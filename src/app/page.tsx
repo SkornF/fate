@@ -192,6 +192,9 @@ export default function Home() {
   const upcomingEvents = events
     .filter((event) => new Date(event.end ?? event.start) >= now)
     .sort((a, b) => a.start.localeCompare(b.start));
+  const pastEvents = events
+    .filter((event) => new Date(event.end ?? event.start) < now)
+    .sort((a, b) => b.start.localeCompare(a.start));
 
   return (
     <div className="flex flex-1 flex-col">
@@ -480,6 +483,58 @@ export default function Home() {
                   );
                 })}
               </ul>
+            )}
+
+            {pastEvents.length > 0 && (
+              <div className="mt-14">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral-500">
+                  Past Events
+                </h3>
+                <ul className="mt-6 space-y-3">
+                  {pastEvents.map((event) => {
+                    const badge = getDateBadge(event);
+                    return (
+                      <li
+                        key={`${event.start}-${event.title}`}
+                        className="flex gap-4 rounded-lg border border-neutral-800/70 bg-neutral-900/20 p-4"
+                      >
+                        <div className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-md bg-neutral-800/60">
+                          <span className="text-[10px] font-bold uppercase tracking-wide text-neutral-400">
+                            {badge.month}
+                          </span>
+                          <span className="text-lg font-extrabold leading-none text-neutral-300">
+                            {badge.day}
+                          </span>
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="font-semibold text-neutral-200">
+                            {event.link ? (
+                              <a
+                                href={event.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="transition-colors hover:text-orange-500"
+                              >
+                                {event.title}
+                              </a>
+                            ) : (
+                              event.title
+                            )}
+                          </p>
+                          <p className="mt-0.5 text-sm text-neutral-500">
+                            {formatEventWhen(event)} · {event.location}
+                          </p>
+                          {event.description && (
+                            <p className="mt-1 line-clamp-2 text-sm text-neutral-500">
+                              {event.description}
+                            </p>
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             )}
           </div>
         </section>
